@@ -17,13 +17,13 @@ public class Hazard : MonoBehaviour
         
     }
     void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Player")){
+        if(other.gameObject.CompareTag("Player")){
             other.GetComponent<Player>().moveSpeed = 0.0f;
             Invoke("Reload", 0.25f);
         }
-        else {
-            Destroy(other.gameObject);
-        }
+        // else {
+        //     Destroy(other.gameObject);
+        // }
     }
     void Reload(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
