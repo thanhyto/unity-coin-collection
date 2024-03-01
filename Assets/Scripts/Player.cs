@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
         public float rotateSpeed = 90.0f;
         public float jumpImpulse = 10.0f;
         public float gravity = -9.81f;
+        public AudioClip jumpSound;
 
         CharacterController playerController;
         Vector3 moveVector;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
         if(playerController.isGrounded){
             if(Input.GetButtonDown("Jump")){
                 Yvelocity = jumpImpulse;
+                AudioSource.PlayClipAtPoint(jumpSound,transform.position);
             }
         }
         else{
